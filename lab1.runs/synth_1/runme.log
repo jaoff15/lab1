@@ -1,0 +1,32 @@
+
+*** Running vivado
+    with args -log top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source top.tcl -notrace
+Command: synth_design -top top -part xc7z010clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 3981 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1431.488 ; gain = 49.906 ; free physical = 1366 ; free virtual = 4677
+---------------------------------------------------------------------------------
+ERROR: [Synth 8-2715] syntax error near ) [/home/offersen/Programs/vivadoprojects/Labs/lab1/lab1.srcs/sources_1/imports/new/top.vhd:43]
+WARNING: [Synth 8-1090] 'm_pwm_generator' is not compiled in library work [/home/offersen/Programs/vivadoprojects/Labs/lab1/lab1.srcs/sources_1/imports/new/top.vhd:38]
+INFO: [Synth 8-2810] unit behavioral ignored due to previous errors [/home/offersen/Programs/vivadoprojects/Labs/lab1/lab1.srcs/sources_1/imports/new/top.vhd:17]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1476.238 ; gain = 94.656 ; free physical = 1379 ; free virtual = 4690
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+INFO: [Common 17-83] Releasing license: Synthesis
+3 Infos, 1 Warnings, 0 Critical Warnings and 2 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Wed Feb 13 16:38:16 2019...
