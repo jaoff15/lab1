@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date         : Fri Feb 15 10:22:11 2019
+| Date         : Fri Feb 15 12:22:46 2019
 | Host         : offersen-S550CB running 64-bit Ubuntu 18.04.2 LTS
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -24,7 +24,7 @@ Table of Contents
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
 | Number of unique control sets                            |     2 |
-| Unused register locations in slices containing registers |     0 |
+| Unused register locations in slices containing registers |     5 |
 +----------------------------------------------------------+-------+
 
 
@@ -35,7 +35,7 @@ Table of Contents
 | Fanout | Control Sets |
 +--------+--------------+
 |      8 |            1 |
-|    16+ |            1 |
+|     11 |            1 |
 +--------+--------------+
 
 
@@ -45,7 +45,7 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              24 |            6 |
+| No           | No                    | No                     |              19 |            8 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
@@ -60,8 +60,8 @@ Table of Contents
 +--------------------+---------------+------------------+------------------+----------------+
 |    Clock Signal    | Enable Signal | Set/Reset Signal | Slice Load Count | Bel Load Count |
 +--------------------+---------------+------------------+------------------+----------------+
-|  clk               |               |                  |                2 |              8 |
-|  clk_8ns_IBUF_BUFG |               |                  |                4 |             16 |
+|  clk               |               |                  |                5 |              8 |
+|  clk_8ns_IBUF_BUFG |               |                  |                3 |             11 |
 +--------------------+---------------+------------------+------------------+----------------+
 
 

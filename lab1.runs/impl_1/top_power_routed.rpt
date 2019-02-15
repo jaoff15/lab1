@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date             : Fri Feb 15 10:22:34 2019
+| Date             : Fri Feb 15 12:23:08 2019
 | Host             : offersen-S550CB running 64-bit Ubuntu 18.04.2 LTS
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.095        |
+| Total On-Chip Power (W)  | 0.096        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.002        |
+| Dynamic (W)              | 0.003        |
 | Device Static (W)        | 0.093        |
 | Effective TJA (C/W)      | 11.5         |
 | Max Ambient (C)          | 83.9         |
@@ -53,15 +53,15 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |       51 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       16 |     17600 |            0.09 |
-|   Register     |    <0.001 |       24 |     35200 |            0.07 |
-|   CARRY4       |    <0.001 |        4 |      4400 |            0.09 |
+| Slice Logic    |    <0.001 |       48 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       19 |     17600 |            0.11 |
+|   Register     |    <0.001 |       19 |     35200 |            0.05 |
+|   CARRY4       |    <0.001 |        3 |      4400 |            0.07 |
 |   Others       |     0.000 |        2 |       --- |             --- |
-| Signals        |    <0.001 |       40 |       --- |             --- |
+| Signals        |    <0.001 |       36 |       --- |             --- |
 | I/O            |     0.002 |       33 |       100 |           33.00 |
 | Static Power   |     0.093 |          |           |                 |
-| Total          |     0.095 |          |           |                 |
+| Total          |     0.096 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -147,7 +147,7 @@ Table of Contents
 +------+-----------+
 | Name | Power (W) |
 +------+-----------+
-| top  |     0.002 |
+| top  |     0.003 |
 +------+-----------+
 
 

@@ -18,19 +18,18 @@ architecture Behavioral of m_pwm_generator is
     constant HIGH : STD_LOGIC := '1';
     constant LOW  : STD_LOGIC := '0';
     
-    signal ocr_uint : unsigned(7 downto 0)  := "00000000";
 begin
-
-ocr_uint <= unsigned(ocr);
 
 
 -- Process that generates PWM
 pwm_process:
 process(counter)
-begin
-    if counter > ocr_uint then
+begin   
+    if counter > unsigned(ocr) then
+    -- If counter is over threshold. Set output to high
         pwm <= HIGH;
     else
+    -- If counter is under threshold. Set output to low
         pwm <= LOW;
     end if;
 end process;
