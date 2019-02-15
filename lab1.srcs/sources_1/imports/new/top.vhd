@@ -59,7 +59,7 @@ row <= row_shift_register;
 --                     x"00FFFFFFFFFFFFFF" when others;
                 
 red_intensity   <= x"FFFFFFFFFFFFFFFF";     
-green_intensity <= x"0022446688AACCEF";
+green_intensity <= x"EEEEEEEEEEEEEEEE";
 blue_intensity  <= x"FFFFFFFFFFFFFFFF";
  
 
@@ -76,21 +76,21 @@ counter_process:
 process (prescaler)
 begin
 -- 125MHz / 2^14 = 7629kHz
-   if rising_edge(prescaler(10)) then
+   if rising_edge(prescaler(12)) then
         counter <= counter + 1;
    end if;
 end process;
 
 
---column_process:
---process (prescaler)
---begin
---   if rising_edge(prescaler(5)) then
---        -- Shift rows one spot down
---        row_shift_register(6 downto 0) <= row_shift_register(7 downto 1);
---        row_shift_register(7)          <= row_shift_register(0);
---   end if;
---end process;
+column_process:
+process (prescaler)
+begin
+   if rising_edge(prescaler(5)) then
+        -- Shift rows one spot down
+        row_shift_register(6 downto 0) <= row_shift_register(7 downto 1);
+        row_shift_register(7)          <= row_shift_register(0);
+   end if;
+end process;
 
 
 
