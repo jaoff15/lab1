@@ -5,25 +5,28 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 
-entity row is
-    Port ( counter      : in  unsigned(7 downto 0)  := "00000000";
-           red          : in  STD_LOGIC_VECTOR (63 downto 0);
-           green        : in  STD_LOGIC_VECTOR (63 downto 0);
-           blue         : in  STD_LOGIC_VECTOR (63 downto 0);
-           red_pwm      : out STD_LOGIC_VECTOR (7 downto 0);
-           green_pwm    : out STD_LOGIC_VECTOR (7 downto 0);
-           blue_pwm     : out STD_LOGIC_VECTOR (7 downto 0));
-end row;
+entity m_row is
+    Port ( 
+            counter      : in  unsigned(7 downto 0)  := "00000000";
+            red          : in  STD_LOGIC_VECTOR (63 downto 0);
+            green        : in  STD_LOGIC_VECTOR (63 downto 0);
+            blue         : in  STD_LOGIC_VECTOR (63 downto 0);
+            red_pwm      : out STD_LOGIC_VECTOR (7 downto 0) := "00000000";
+            green_pwm    : out STD_LOGIC_VECTOR (7 downto 0) := "00000000";
+            blue_pwm     : out STD_LOGIC_VECTOR (7 downto 0) := "00000000"
+            );
+end m_row;
 
-architecture Behavioral of row is
+architecture Behavioral of m_row is
     component m_color_channel is
-    Port (  counter     : in  unsigned(7 downto 0)  := "00000000";
-            red         : in  STD_LOGIC_VECTOR(7 downto 0);
-            green       : in  STD_LOGIC_VECTOR(7 downto 0);
-            blue        : in  STD_LOGIC_VECTOR(7 downto 0);
-            red_pwm     : out STD_LOGIC;
-            green_pwm   : out STD_LOGIC;
-            blue_pwm    : out STD_LOGIC
+    Port (  
+            counter     : in  unsigned(7 downto 0)          := "00000000";
+            red         : in  STD_LOGIC_VECTOR(7 downto 0)  := "00000000";
+            green       : in  STD_LOGIC_VECTOR(7 downto 0)  := "00000000";
+            blue        : in  STD_LOGIC_VECTOR(7 downto 0)  := "00000000";
+            red_pwm     : out STD_LOGIC                     := '0';
+            green_pwm   : out STD_LOGIC                     := '0';
+            blue_pwm    : out STD_LOGIC                     := '0'
            );
     end component;
 begin

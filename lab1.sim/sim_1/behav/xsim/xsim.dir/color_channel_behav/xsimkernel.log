@@ -1,0 +1,4 @@
+Running: xsim.dir/color_channel_behav/xsimk -simmode gui -wdb color_channel_behav.wdb -simrunnum 0 -socket 44741
+Design successfully loaded
+Design Loading Memory Usage: 43568 KB (Peak: 43568 KB)
+Design Loading CPU Usage: 30 ms

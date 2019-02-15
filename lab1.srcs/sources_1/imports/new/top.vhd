@@ -6,11 +6,12 @@ use ieee.NUMERIC_STD.all;
 
 
 entity top is
-    Port (  clk_8ns     : in  STD_LOGIC;
-            red         : out STD_LOGIC_VECTOR (7 downto 0);
-            green       : out STD_LOGIC_VECTOR (7 downto 0);
-            blue        : out STD_LOGIC_VECTOR (7 downto 0);
-            row         : out STD_LOGIC_VECTOR (7 downto 0)
+    Port (  
+            clk_8ns     : in  STD_LOGIC;
+            red         : out STD_LOGIC_VECTOR (7 downto 0) := "00000000";
+            green       : out STD_LOGIC_VECTOR (7 downto 0) := "00000000";
+            blue        : out STD_LOGIC_VECTOR (7 downto 0) := "00000000";
+            row         : out STD_LOGIC_VECTOR (7 downto 0) := "00000000"
            );
 end top;
 
@@ -18,30 +19,27 @@ architecture Behavioral of top is
 
     
     
-    
+    -- Define interface with row
     component m_row is
-    Port (  counter     : in  unsigned(7 downto 0)  := "00000000";
-            red_out     : in  STD_LOGIC_VECTOR(63 downto 0);
-            green_out   : in  STD_LOGIC_VECTOR(63 downto 0);
-            blue_out    : in  STD_LOGIC_VECTOR(63 downto 0);
-            red_pwm     : out STD_LOGIC_VECTOR(7 downto 0);
-            green_pwm   : out STD_LOGIC_VECTOR(7 downto 0);
-            blue_pwm    : out STD_LOGIC_VECTOR(7 downto 0)
+    Port (  
+            counter     : in  unsigned(7 downto 0)          := "00000000";
+            red         : in  STD_LOGIC_VECTOR(63 downto 0) := x"0000000000000000"; 
+            green       : in  STD_LOGIC_VECTOR(63 downto 0) := x"0000000000000000";
+            blue        : in  STD_LOGIC_VECTOR(63 downto 0) := x"0000000000000000";
+            red_pwm     : out STD_LOGIC_VECTOR(7  downto 0) := "00000000";
+            green_pwm   : out STD_LOGIC_VECTOR(7  downto 0) := "00000000";
+            blue_pwm    : out STD_LOGIC_VECTOR(7  downto 0) := "00000000"
            );
     end component;
     
+    
     signal prescaler       : unsigned(31 downto 0) := x"00000000";
     signal counter         : unsigned(7 downto 0)  := "00000000";
-    signal column_counter  : unsigned(7 downto 0)  := "00000000";
-    
---    signal color_r      : STD_LOGIC_VECTOR(63 downto 0);
---    signal color_g      : STD_LOGIC_VECTOR(63 downto 0);
---    signal color_b      : STD_LOGIC_VECTOR(63 downto 0);
-    
-    
-    signal column       : STD_LOGIC_VECTOR(7 downto 0);
+
+    signal row_shift_register : STD_LOGIC_VECTOR (7 downto 0) := "00000000";
 begin
 
+row <= row_shift_register;
 
 prescaling_process:
 process (clk_8ns)
@@ -61,11 +59,14 @@ begin
    end if;
 end process;
 
+
 column_process:
 process (prescaler)
 begin
-   if rising_edge(prescaler(20)) then
-        column_counter <= column_counter + 1;
+   if rising_edge(prescaler(25)) then
+        -- Shift rows one spot down
+        row_shift_register(6 downto 0) <= row_shift_register(7 downto 1);
+        row_shift_register(7)          <= row_shift_register(0);
    end if;
 end process;
 
@@ -74,9 +75,9 @@ end process;
 row0:m_row
 port map(
     counter     => counter,
-    red_out     => x"00112233445566778899AABBCCDDEEFF",
-    green_out   => x"00112233445566778899AABBCCDDEEFF",
-    blue_out    => x"00112233445566778899AABBCCDDEEFF",
+    red         => x"22446688AACCDDFF",
+    green       => x"FFFFFFFFFFFFFFFF",
+    blue        => x"FFFFFFFFFFFFFFFF",
     red_pwm     => red,
     green_pwm   => green,
     blue_pwm    => blue

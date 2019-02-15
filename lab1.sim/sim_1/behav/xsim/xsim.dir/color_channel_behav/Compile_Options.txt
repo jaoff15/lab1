@@ -1,0 +1,1 @@
+-wto "b764e2e591e8445caaf2df9bb5d1457a" --incr --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "secureip" --snapshot "color_channel_behav" "xil_defaultlib.color_channel" -log "elaborate.log" 
