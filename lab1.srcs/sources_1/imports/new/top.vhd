@@ -65,7 +65,7 @@ end process;
 
 row_process: process (prescaler)
 begin
-    if rising_edge(prescaler(10)) then
+    if rising_edge(prescaler(11)) then
         -- Shift bits one bit to the left
         row_shift_register <= row_shift_register rol 1;
     end if;
@@ -75,8 +75,6 @@ end process;
 
 color_picker_process: process(row_shift_register)
 begin
-
-        
 --     FF = 100%
 --     80 = 50%
 --     00 = 0%    
@@ -122,11 +120,14 @@ begin
       -- Others
       when others     => blue_intensity <=    x"0000000000000000";
    end case;
+   
+   
+   row <= std_logic_vector(row_shift_register);
 end process;
 
 
 
-row <= std_logic_vector(row_shift_register);
+
 
 
 row0:m_row
